@@ -46,8 +46,8 @@ def get_practice_chain():
 
     memory = ConversationBufferMemory(
         chat_memory = history,
-        human_prefix = "STUDENT",
-        ai_prefix = "PRACTICE BUDDY",
+        human_prefix = "Student",
+        ai_prefix = "Practice Buddy",
     )
 
     practice_chain = ConversationChain(
