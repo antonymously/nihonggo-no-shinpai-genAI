@@ -49,15 +49,18 @@ def get_conversation_string(conversational_chain, **kwargs):
     
     return conversation_str
 
-def get_critic_chain():
+def get_critic_chain(**kwargs):
     '''
     Constructs and returns an instance of the critic chain
     '''
 
-    llm = ChatOpenAI(
-        model_name="gpt-3.5-turbo",
-        openai_api_key = CONFIG["openai_api_key"],
-        temperature = 0,
+    llm = kwargs.get(
+        "llm", 
+        ChatOpenAI(
+            model_name="gpt-3.5-turbo",
+            openai_api_key = CONFIG["openai_api_key"],
+            temperature = 0,
+        )
     )
 
     # critic has no chat history

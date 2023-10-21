@@ -30,15 +30,18 @@ with open("./config.json", "r") as f:
 with open("./shinpai_genai/prompts/practice_buddy_system_prompt.txt", "r") as f:
     PRACTICE_BUDDY_SYSTEM_PROMPT = f.read()
 
-def get_practice_chain():
+def get_practice_chain(**kwargs):
     '''
     Constructs and returns an instance of the practice buddy chain
     '''
 
-    llm = ChatOpenAI(
-        model_name="gpt-3.5-turbo",
-        openai_api_key = CONFIG["openai_api_key"],
-        temperature = 0,
+    llm = kwargs.get(
+        "llm", 
+        ChatOpenAI(
+            model_name="gpt-3.5-turbo",
+            openai_api_key = CONFIG["openai_api_key"],
+            temperature = 0,
+        )
     )
 
     history = ChatMessageHistory()
