@@ -2,522 +2,522 @@
     {
         "id": 0,
         "title": "\u3042\u307e\u308a\uff5e\u306a\u3044 (amari~nai)",
-        "short_description": ": not very, not much"
+        "short_description": "not very, not much"
     },
     {
         "id": 1,
         "title": "\u3042\u3068\u3067 (ato de)",
-        "short_description": ": after, later"
+        "short_description": "after, later"
     },
     {
         "id": 2,
         "title": "\u3070 (ba)",
-        "short_description": ": if\u2026 then"
+        "short_description": "if\u2026 then"
     },
     {
         "id": 3,
         "title": "\u5834\u5408\u306f (baai wa)",
-        "short_description": ": in the event of"
+        "short_description": "in the event of"
     },
     {
         "id": 4,
         "title": "\u3070\u304b\u308a (bakari)",
-        "short_description": ": only, nothing but"
+        "short_description": "only, nothing but"
     },
     {
         "id": 5,
         "title": "\u3060\u3051\u3067 (dake de)",
-        "short_description": ": just by"
+        "short_description": "just by"
     },
     {
         "id": 6,
         "title": "\u3060\u3059 (dasu)",
-        "short_description": ": to suddenly begin, to suddenly appear"
+        "short_description": "to suddenly begin, to suddenly appear"
     },
     {
         "id": 7,
         "title": "\u3067\u3082 (demo)",
-        "short_description": ": or something"
+        "short_description": "or something"
     },
     {
         "id": 8,
         "title": "\u3067\u3054\u3056\u3044\u307e\u3059 (de gozaimasu)",
-        "short_description": ": to be (honorific)"
+        "short_description": "to be (honorific)"
     },
     {
         "id": 9,
         "title": "\u304c\u308b (garu)",
-        "short_description": ": to show signs of, to feel, to think"
+        "short_description": "to show signs of, to feel, to think"
     },
     {
         "id": 10,
         "title": "\u304c\u3059\u308b (ga suru)",
-        "short_description": ": smell, hear, taste"
+        "short_description": "smell, hear, taste"
     },
     {
         "id": 11,
         "title": "\u3054\u308d (goro)",
-        "short_description": ": around, about"
+        "short_description": "around, about"
     },
     {
         "id": 12,
         "title": "\u3054\u3056\u3044\u307e\u3059 (gozaimasu)",
-        "short_description": ": to be, to exist (honorific)"
+        "short_description": "to be, to exist (honorific)"
     },
     {
         "id": 13,
         "title": "\u306f\u3058\u3081\u308b (hajimeru)",
-        "short_description": ": to start, to begin to"
+        "short_description": "to start, to begin to"
     },
     {
         "id": 14,
         "title": "\u306f\u305a\u3060 (hazu da)",
-        "short_description": ": it must be, it should be"
+        "short_description": "it must be, it should be"
     },
     {
         "id": 15,
         "title": "\u306f\u305a\u304c\u306a\u3044 (hazu ga nai)",
-        "short_description": ": cannot be"
+        "short_description": "cannot be"
     },
     {
         "id": 16,
         "title": "\u3072\u3064\u3088\u3046 (hitsuyou)",
-        "short_description": ": need, necessary"
+        "short_description": "need, necessary"
     },
     {
         "id": 17,
         "title": "\u3072\u3064\u3088\u3046\u304c\u3042\u308b (hitsuyou ga aru)",
-        "short_description": ": it is necessary to"
+        "short_description": "it is necessary to"
     },
     {
         "id": 18,
         "title": "\u307b\u3057\u3044 (hoshii)",
-        "short_description": ": to want something, to be in need of"
+        "short_description": "to want something, to be in need of"
     },
     {
         "id": 19,
         "title": "\u3044\u3089\u3063\u3057\u3083\u308b (irassharu)",
-        "short_description": ": to be, to\u00a0come, to go"
+        "short_description": "to be, to\u00a0come, to go"
     },
     {
         "id": 20,
         "title": "\u3044\u305f\u3059 (itasu)",
-        "short_description": ": to do (honorific)"
+        "short_description": "to do (honorific)"
     },
     {
         "id": 21,
         "title": "\u3058\u3083\u306a\u3044\u304b (janai ka)",
-        "short_description": ": isn\u2019t it"
+        "short_description": "isn\u2019t it"
     },
     {
         "id": 22,
         "title": "\u304b\u3069\u3046\u304b (ka dou ka)",
-        "short_description": ": whether or not"
+        "short_description": "whether or not"
     },
     {
         "id": 23,
         "title": "\u304b\u3044 (kai)",
-        "short_description": ": (turns a sentence into a yes/no question)"
+        "short_description": "(turns a sentence into a yes/no question)"
     },
     {
         "id": 24,
         "title": "\u304b\u3082\u3057\u308c\u306a\u3044 (kamoshirenai)",
-        "short_description": ": might, maybe"
+        "short_description": "might, maybe"
     },
     {
         "id": 25,
         "title": "\u304b\u306a (kana)",
-        "short_description": ":\u00a0I wonder"
+        "short_description": "I wonder"
     },
     {
         "id": 26,
         "title": "\u304b\u305f (kata)",
-        "short_description": ": how to"
+        "short_description": "how to"
     },
     {
         "id": 27,
         "title": "\u304b\u3057\u3089 (kashira)",
-        "short_description": ": I wonder"
+        "short_description": "I wonder"
     },
     {
         "id": 28,
         "title": "\u3053\u3068 (koto)",
-        "short_description": ": Verb nominalizer"
+        "short_description": "Verb nominalizer"
     },
     {
         "id": 29,
         "title": "\u3053\u3068\u304c\u3067\u304d\u308b (koto ga dekiru)",
-        "short_description": ": can, be able to"
+        "short_description": "can, be able to"
     },
     {
         "id": 30,
         "title": "\u3053\u3068\u306b\u306a\u308b (koto ni naru)",
-        "short_description": ": it has been decided that"
+        "short_description": "it has been decided that"
     },
     {
         "id": 31,
         "title": "\u3053\u3068\u306b\u3059\u308b (koto ni suru)",
-        "short_description": ": to decide on"
+        "short_description": "to decide on"
     },
     {
         "id": 32,
         "title": "\u307e\u3067\u306b (made ni)",
-        "short_description": ": by, by the time"
+        "short_description": "by, by the time"
     },
     {
         "id": 33,
         "title": "\u307f\u305f\u3044 (mitai)",
-        "short_description": ": like, similar to, resembling"
+        "short_description": "like, similar to, resembling"
     },
     {
         "id": 34,
         "title": "\u307f\u305f\u3044\u306b/\u307f\u305f\u3044\u306a (mitai ni/mitai na)",
-        "short_description": ": like, similar to"
+        "short_description": "like, similar to"
     },
     {
         "id": 35,
         "title": "\u306a\u3069 (nado)",
-        "short_description": ": such as, things like"
+        "short_description": "such as, things like"
     },
     {
         "id": 36,
         "title": "\u306a\u304c\u3089 (nagara)",
-        "short_description": ": while, during, as"
+        "short_description": "while, during, as"
     },
     {
         "id": 37,
         "title": "\u306a\u3044\u3067 (naide)",
-        "short_description": ": without doing, don\u2019t"
+        "short_description": "without doing, don\u2019t"
     },
     {
         "id": 38,
         "title": "\u306a\u3051\u308c\u3070\u3044\u3051\u306a\u3044/\u306a\u3051\u308c\u3070\u306a\u3089\u306a\u3044 (nakereba ikenai/nakereba naranai)",
-        "short_description": ": must do, have to do"
+        "short_description": "must do, have to do"
     },
     {
         "id": 39,
         "title": "\u306a\u304f\u3066\u306f\u3044\u3051\u306a\u3044/\u306a\u304f\u3066\u306f\u306a\u3089\u306a\u3044 (nakutewa ikenai/nakutewa naranai)",
-        "short_description": ": must do, have to do"
+        "short_description": "must do, have to do"
     },
     {
         "id": 40,
         "title": "\u306a\u304f\u3066\u3082\u3044\u3044 (nakute mo ii)",
-        "short_description": ": don\u2019t have to"
+        "short_description": "don\u2019t have to"
     },
     {
         "id": 41,
         "title": "\u306a\u3089 (nara)",
-        "short_description": ": if, in case, as for"
+        "short_description": "if, in case, as for"
     },
     {
         "id": 42,
         "title": "\u306a\u3055\u3044 (nasai)",
-        "short_description": ":\u00a0command (order somebody to do something)"
+        "short_description": "command (order somebody to do something)"
     },
     {
         "id": 43,
         "title": "\u306a\u3055\u308b (nasaru)",
-        "short_description": ": to do (honorific)"
+        "short_description": "to do (honorific)"
     },
     {
         "id": 44,
         "title": "\u306b\u304f\u3044 (nikui)",
-        "short_description": ": difficult to, hard to"
+        "short_description": "difficult to, hard to"
     },
     {
         "id": 45,
         "title": "\u306e\u306a\u304b\u3067 (no naka de)",
-        "short_description": ": in, among"
+        "short_description": "in, among"
     },
     {
         "id": 46,
         "title": "\u306e\u306b(noni) \u2013 1",
-        "short_description": ": in order to"
+        "short_description": "in order to"
     },
     {
         "id": 47,
         "title": "\u306e\u306b (noni) \u2013 2",
-        "short_description": ": although, in spite of, even though"
+        "short_description": "although, in spite of, even though"
     },
     {
         "id": 48,
         "title": "\u306e\u3088\u3046\u306b / \u306e\u3088\u3046\u306a (no you ni/no you na)",
-        "short_description": ": like,\u00a0similar to"
+        "short_description": "like,\u00a0similar to"
     },
     {
         "id": 49,
         "title": "\u304a\uff5e\u304f\u3060\u3055\u3044 (o~kudasai)",
-        "short_description": ": please do (honorific)"
+        "short_description": "please do (honorific)"
     },
     {
         "id": 50,
         "title": "\u304a\uff5e\u306b\u306a\u308b (o~ni naru)",
-        "short_description": ": to do (honorific)"
+        "short_description": "to do (honorific)"
     },
     {
         "id": 51,
         "title": "\u304a\u304d\u306b (oki ni)",
-        "short_description": ": repeated at intervals, every"
+        "short_description": "repeated at intervals, every"
     },
     {
         "id": 52,
         "title": "\u304a\u308f\u308b (owaru)",
-        "short_description": ": to finish, to end"
+        "short_description": "to finish, to end"
     },
     {
         "id": 53,
         "title": "\u3089\u308c\u308b (rareru) \u2013 1",
-        "short_description": ": to be able to do something"
+        "short_description": "to be able to do something"
     },
     {
         "id": 54,
         "title": "\u3089\u308c\u308b (rareru) \u2013 2",
-        "short_description": ": (passive voice)"
+        "short_description": "(passive voice)"
     },
     {
         "id": 55,
         "title": "\u3089\u3057\u3044 (rashii)",
-        "short_description": ": seems like"
+        "short_description": "seems like"
     },
     {
         "id": 56,
         "title": "\u3055 (sa)",
-        "short_description": ": (nominalizer for adjectives)"
+        "short_description": "(nominalizer for adjectives)"
     },
     {
         "id": 57,
         "title": "\u3055\u305b\u308b (saseru)",
-        "short_description": ": to make/let somebody do something"
+        "short_description": "to make/let somebody do something"
     },
     {
         "id": 58,
         "title": "\u3055\u305b\u3089\u308c\u308b (saserareru)",
-        "short_description": ": to be made to do something"
+        "short_description": "to be made to do something"
     },
     {
         "id": 59,
         "title": "\u3057 (shi)",
-        "short_description": ": and"
+        "short_description": "and"
     },
     {
         "id": 60,
         "title": "\u3057\u304b\uff5e\u306a\u3044 (shika~nai)",
-        "short_description": ": only, nothing but"
+        "short_description": "only, nothing but"
     },
     {
         "id": 61,
         "title": "\u305d\u3093\u306a\u306b (sonna ni)",
-        "short_description": ": so, so much, like that"
+        "short_description": "so, so much, like that"
     },
     {
         "id": 62,
         "title": "\u305d\u308c\u3067\u3082 (sore demo)",
-        "short_description": ": but still, and yet"
+        "short_description": "but still, and yet"
     },
     {
         "id": 63,
         "title": "\u305d\u3046\u306b/\u305d\u3046\u306a (sou ni/sou na)",
-        "short_description": ": seem, look like"
+        "short_description": "seem, look like"
     },
     {
         "id": 64,
         "title": "\u305d\u3046\u3060 (sou da)\u00a0\u2013 1",
-        "short_description": ": I heard that, it is said that"
+        "short_description": "I heard that, it is said that"
     },
     {
         "id": 65,
         "title": "\u305d\u3046\u3060 (sou da) \u2013 2",
-        "short_description": ":\u00a0look like, appear, seem"
+        "short_description": "look like, appear, seem"
     },
     {
         "id": 66,
         "title": "\u3059\u304e\u308b (sugiru)",
-        "short_description": ": too much"
+        "short_description": "too much"
     },
     {
         "id": 67,
         "title": "\u305f\u3070\u304b\u308a (ta bakari)",
-        "short_description": ": just did, something just\u00a0happened"
+        "short_description": "just did, something just\u00a0happened"
     },
     {
         "id": 68,
         "title": "\u305f\u304c\u308b (tagaru)",
-        "short_description": ": to want to"
+        "short_description": "to want to"
     },
     {
         "id": 69,
         "title": "\u305f\u3089 (tara)",
-        "short_description": ": if, after, when"
+        "short_description": "if, after, when"
     },
     {
         "id": 70,
         "title": "\u305f\u3089\u3069\u3046 (tara dou)",
-        "short_description": ": why don\u2019t you"
+        "short_description": "why don\u2019t you"
     },
     {
         "id": 71,
         "title": "\u305f\u308a\uff5e\u305f\u308a (tari~tari)",
-        "short_description": ": do such things like"
+        "short_description": "do such things like"
     },
     {
         "id": 72,
         "title": "\u305f\u3068\u3053\u308d (ta tokoro)",
-        "short_description": ": just finished doing, was just doing"
+        "short_description": "just finished doing, was just doing"
     },
     {
         "id": 73,
         "title": "\u3066\u3042\u3052\u308b (te ageru)",
-        "short_description": ": to do something for someone"
+        "short_description": "to do something for someone"
     },
     {
         "id": 74,
         "title": "\u3066\u3042\u308b (te aru)",
-        "short_description": ": something is/has been done"
+        "short_description": "something is/has been done"
     },
     {
         "id": 75,
         "title": "\u3066\u307b\u3057\u3044 (te hoshii)",
-        "short_description": ": I need you to"
+        "short_description": "I need you to"
     },
     {
         "id": 76,
         "title": "\u3066\u3044\u304f (te iku)",
-        "short_description": ": to go on, to start"
+        "short_description": "to go on, to start"
     },
     {
         "id": 77,
         "title": "\u3066\u3044\u308b\u3068\u3053\u308d (teiru tokoro)",
-        "short_description": ": in the process of doing"
+        "short_description": "in the process of doing"
     },
     {
         "id": 78,
         "title": "\u3066\u3044\u305f\u3060\u3051\u307e\u305b\u3093\u304b (te itadakemasen ka)",
-        "short_description": ": could you please"
+        "short_description": "could you please"
     },
     {
         "id": 79,
         "title": "\u3066\u304f\u308c\u308b (te kureru)",
-        "short_description": ": to do something for someone"
+        "short_description": "to do something for someone"
     },
     {
         "id": 80,
         "title": "\u3066\u304f\u308b (te kuru)",
-        "short_description": ": to come to, to become, to continue"
+        "short_description": "to come to, to become, to continue"
     },
     {
         "id": 81,
         "title": "\u3066\u307f\u308b (te miru)",
-        "short_description": ": to try to"
+        "short_description": "to try to"
     },
     {
         "id": 82,
         "title": "\u3066\u3082 (temo)",
-        "short_description": ": even if, even though"
+        "short_description": "even if, even though"
     },
     {
         "id": 83,
         "title": "\u3066\u3082\u3089\u3046 (te morau)",
-        "short_description": ": to get somebody to do something"
+        "short_description": "to get somebody to do something"
     },
     {
         "id": 84,
         "title": "\u3066\u304a\u304f (te oku)",
-        "short_description": ": to do something in advance"
+        "short_description": "to do something in advance"
     },
     {
         "id": 85,
         "title": "\u3066\u3057\u307e\u3046 (te shimau)",
-        "short_description": ": to do something by accident, to finish completely"
+        "short_description": "to do something by accident, to finish completely"
     },
     {
         "id": 86,
         "title": "\u3066\u3059\u307f\u307e\u305b\u3093 (te sumimasen)",
-        "short_description": ": I\u2019m sorry for"
+        "short_description": "I\u2019m sorry for"
     },
     {
         "id": 87,
         "title": "\u3066\u3088\u304b\u3063\u305f (te yokatta)",
-        "short_description": ": I\u2019m glad that"
+        "short_description": "I\u2019m glad that"
     },
     {
         "id": 88,
         "title": "\u3068 (to)",
-        "short_description": ": if, when, and"
+        "short_description": "if, when, and"
     },
     {
         "id": 89,
         "title": "\u3068\u3044\u3046\u3053\u3068 (to iu koto)",
-        "short_description": ": (changes a sentence or phrase into a Noun)"
+        "short_description": "(changes a sentence or phrase into a Noun)"
     },
     {
         "id": 90,
         "title": "\u3068\u304b\uff5e\u3068\u304b (toka ~ toka)",
-        "short_description": ": among other things, such as"
+        "short_description": "among other things, such as"
     },
     {
         "id": 91,
         "title": "\u3068\u304d (toki)",
-        "short_description": ": when, at the time"
+        "short_description": "when, at the time"
     },
     {
         "id": 92,
         "title": "\u3068\u3053\u308d (tokoro)",
-        "short_description": ": about to, on the verge of"
+        "short_description": "about to, on the verge of"
     },
     {
         "id": 93,
         "title": "\u3068\u304a\u3082\u3046 (to omou)",
-        "short_description": ": I think, you think"
+        "short_description": "I think, you think"
     },
     {
         "id": 94,
         "title": "\u3064\u3065\u3051\u308b (tsuzukeru)",
-        "short_description": ": to continue"
+        "short_description": "to continue"
     },
     {
         "id": 95,
         "title": "\u3084\u3059\u3044 (yasui)",
-        "short_description": ": easy to, likely to"
+        "short_description": "easy to, likely to"
     },
     {
         "id": 96,
         "title": "\u3088\u308a (yori)",
-        "short_description": ": than"
+        "short_description": "than"
     },
     {
         "id": 97,
         "title": "\u3088\u3066\u3044\u3060 (yotei da)",
-        "short_description": ": plan to, intend to"
+        "short_description": "plan to, intend to"
     },
     {
         "id": 98,
         "title": "\u3088\u3046\u3060 (you da)",
-        "short_description": ": it seems that, it appears that, it looks like"
+        "short_description": "it seems that, it appears that, it looks like"
     },
     {
         "id": 99,
         "title": "\u3088\u3046\u306b/\u3088\u3046\u306a (you ni/you na)",
-        "short_description": ": as, like, just like"
+        "short_description": "as, like, just like"
     },
     {
         "id": 100,
         "title": "\u3088\u3046\u306b\u306a\u308b (you ni naru)",
-        "short_description": ": to reach the point that"
+        "short_description": "to reach the point that"
     },
     {
         "id": 101,
         "title": "\u3088\u3046\u306b\u3059\u308b (you ni suru)",
-        "short_description": ": to try to, to make sure that"
+        "short_description": "to try to, to make sure that"
     },
     {
         "id": 102,
         "title": "\u3088\u3046\u3068\u304a\u3082\u3046 (you to omou)",
-        "short_description": ": I think I will"
+        "short_description": "I think I will"
     },
     {
         "id": 103,
         "title": "\u305c\u3093\u305c\u3093 (zenzen)",
-        "short_description": ": (not) at all"
+        "short_description": "(not) at all"
     },
     {
         "id": 104,

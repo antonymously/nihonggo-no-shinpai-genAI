@@ -25,30 +25,6 @@ with open("./shinpai_genai/prompts/critic_system_prompt.txt", "r") as f:
 with open("./shinpai_genai/prompts/critic_user_prompt_template.txt", "r") as f:
     CRITIC_USER_PROMPT_TEMPLATE = f.read()
 
-def get_conversation_string(conversational_chain, **kwargs):
-    '''
-    Extracts the conversation history as a string.
-    Used to put the conversation history in the prompt of another chain.
-    '''
-    human_label = kwargs.get("human_label", "STUDENT")
-    ai_label = kwargs.get("ai_label", "PRACTICE BUDDY")
-
-    conversation_str = ""
-
-    for msg_dict in conversational_chain.memory.dict()["chat_memory"]["messages"][:-1]:
-        # NOTE:
-            # exclude the last one because it will end with the ai message
-            # want to get the last human message
-
-        if msg_dict["type"] == "system":
-            continue
-        elif msg_dict["type"] == 'human':
-            conversation_str += human_label + ": " + msg_dict["content"] + "\n"
-        elif msg_dict["type"] == 'ai':
-            conversation_str += ai_label + ": " + msg_dict["content"] + "\n"
-    
-    return conversation_str
-
 def get_critic_chain(**kwargs):
     '''
     Constructs and returns an instance of the critic chain
