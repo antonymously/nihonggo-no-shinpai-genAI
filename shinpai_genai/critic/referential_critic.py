@@ -5,8 +5,12 @@ from __future__ import annotations
 
 import os
 import json
+from ast import literal_eval
 
 from typing import Any, Dict, List, Optional
+
+from copy import copy
+import numpy as np
 
 from langchain.schema.language_model import BaseLanguageModel
 from langchain.callbacks.manager import (
@@ -42,14 +46,19 @@ with open("./data/grammar_documents/n4_grammar/index_short.json", "r", encoding=
 
 # NOTE: can't use curly braces with prompt template
     # because it confuses it for placeholders
-LESSON_LIST = LESSON_LIST.replace("{", "(").replace("}", ")")
+LESSON_LIST_SAFE = LESSON_LIST.replace("{", "(").replace("}", ")")
+
+# for the variety lesson selector
+    # which shuffles the lessons
+LESSON_LIST_DICTS = json.loads(LESSON_LIST)
 
 def get_lesson_selector_chain(**kwargs):
     '''
     Constructs a chain which can select lessons for giving feedback to the student.
     '''
 
-    lesson_list = kwargs.get("lesson_list", LESSON_LIST)
+    lesson_list = kwargs.get("lesson_list", LESSON_LIST_SAFE)
+    n_llm_lessons = kwargs.get("n_llm_lessons", 3)
 
     llm = kwargs.get(
         "llm", 
@@ -60,7 +69,10 @@ def get_lesson_selector_chain(**kwargs):
         )
     )
 
-    system_prompt = LESSON_SELECTOR_SYSTEM_PROMPT.format(lesson_list = lesson_list)
+    system_prompt = LESSON_SELECTOR_SYSTEM_PROMPT.format(
+        lesson_list = lesson_list,
+        n_llm_lessons = n_llm_lessons,
+    )
 
     lesson_selector_prompt = ChatPromptTemplate.from_messages([
         ("system", system_prompt),
@@ -74,6 +86,102 @@ def get_lesson_selector_chain(**kwargs):
 
     return lesson_selector_chain
 
+class VarietyLessonSelectorChain(Chain):
+    '''
+    Tries to introduce more variety to lesson selection.
+        Shuffles lesson list everytime before prompting to distribute bias.
+        Takes some lessons from the selection of the LLM, but adds some random ones.
+
+    TODO: test this chain
+    '''
+
+    prompt: BasePromptTemplate = ChatPromptTemplate.from_messages([
+        ("system", LESSON_SELECTOR_SYSTEM_PROMPT),
+        ("human", LESSON_SELECTOR_USER_PROMPT),
+    ])
+
+    llm: BaseLanguageModel = ChatOpenAI(
+        model_name="gpt-3.5-turbo-16k",
+        openai_api_key = CONFIG["openai_api_key"],
+        temperature = 0,
+    )
+        # NOTE: create the LLM chain in __init__
+            # better to just ask the user to select what language model
+
+    n_llm_lessons: int = 2
+    n_random_lessons: int = 1
+
+    @property
+    def input_keys(self) -> List[str]:
+
+        return ["lesson_list", "conversation"]
+
+    @property
+    def output_keys(self) -> List[str]:
+
+        return ["lesson_ids"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        seed = kwargs.get("seed", 2023)
+        self.random_state = np.random.RandomState(seed = seed)
+
+        self.llm_chain = LLMChain(
+            llm = self.llm,
+            prompt = self.prompt,
+        )
+
+    def _call(
+        self,
+        inputs: Dict[str, Any],
+        run_manager: Optional[CallbackManagerForChainRun] = None,
+    ) -> Dict[str, str]:
+
+        lesson_list_dicts = copy(inputs["lesson_list"])
+
+        # shuffle the lesson list
+            # NOTE: inplace
+        self.random_state.shuffle(lesson_list_dicts)
+
+        # make the lesson list into a string
+            # ensure the encoding is correct
+        lesson_list_str = json.dumps(lesson_list_dicts, ensure_ascii=False)
+
+        # run the llm chain with the lesson list string and conversation string as input
+        llm_lessons_str = self.llm_chain.run(
+            {
+                "conversation": inputs["conversation"],
+                "lesson_list": lesson_list_str,
+                "n_llm_lessons": self.n_llm_lessons,
+            }
+        )
+
+        # convert the output to list
+        llm_lessons_list = literal_eval(llm_lessons_str)
+
+        # get a list of indices of lessons
+            # exclude the indices selected by the llm
+        lesson_ids = [l["id"] for l in lesson_list_dicts if l["id"] not in llm_lessons_list]
+
+        # select random lessons from the remaining
+            # NOTE: outputs a list even if size = 1
+        rand_lessons = self.random_state.choice(lesson_ids, size = self.n_random_lessons, replace=False)
+
+        # concatenate the two lists
+        chosen_ids = llm_lessons_list + rand_lessons
+
+        # log on run manager to ensure that things went right
+        if run_manager:
+            run_manager.on_text("Total number of lessons:", len(lesson_list_dicts))
+            run_manager.on_text("Lessons selected by llm:", llm_lessons_list)
+            run_manager.on_text("Remaining after llm:", len(lesson_ids))
+            run_manager.on_text("Selected by random:", rand_lessons)
+
+        return {
+            "lesson_ids": chosen_ids,
+        }
+
 class ReferentialCriticChain(Chain):
     '''
     Provides feedback for the student during conversation.
@@ -81,6 +189,10 @@ class ReferentialCriticChain(Chain):
 
     TODO: If something was wrong in the grammar, prioritize correcting that before using other lessons
         See if we can do this using the prompt, or have to chain it.
+
+    TODO: Probably should have some visibility on previous feedback.
+        So it can comment on whether the student applied it correctly.
+        Add this to prompt?
     '''
 
     pass
