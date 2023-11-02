@@ -91,25 +91,25 @@ class VarietyLessonSelectorChain(Chain):
     Tries to introduce more variety to lesson selection.
         Shuffles lesson list everytime before prompting to distribute bias.
         Takes some lessons from the selection of the LLM, but adds some random ones.
-
-    TODO: test this chain
     '''
-
-    prompt: BasePromptTemplate = ChatPromptTemplate.from_messages([
-        ("system", LESSON_SELECTOR_SYSTEM_PROMPT),
-        ("human", LESSON_SELECTOR_USER_PROMPT),
-    ])
-
-    llm: BaseLanguageModel = ChatOpenAI(
-        model_name="gpt-3.5-turbo-16k",
-        openai_api_key = CONFIG["openai_api_key"],
-        temperature = 0,
-    )
-        # NOTE: create the LLM chain in __init__
-            # better to just ask the user to select what language model
 
     n_llm_lessons: int = 2
     n_random_lessons: int = 1
+
+    random_state: np.random.RandomState = np.random.RandomState(seed = 2023)
+
+    # NOTE: user is not expected to change this chain
+    llm_chain: LLMChain = LLMChain(
+        llm = ChatOpenAI(
+            model_name="gpt-3.5-turbo-16k",
+            openai_api_key = CONFIG["openai_api_key"],
+            temperature = 0,
+        ),
+        prompt = ChatPromptTemplate.from_messages([
+            ("system", LESSON_SELECTOR_SYSTEM_PROMPT),
+            ("human", LESSON_SELECTOR_USER_PROMPT),
+        ]),
+    )
 
     @property
     def input_keys(self) -> List[str]:
@@ -120,17 +120,6 @@ class VarietyLessonSelectorChain(Chain):
     def output_keys(self) -> List[str]:
 
         return ["lesson_ids"]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        seed = kwargs.get("seed", 2023)
-        self.random_state = np.random.RandomState(seed = seed)
-
-        self.llm_chain = LLMChain(
-            llm = self.llm,
-            prompt = self.prompt,
-        )
 
     def _call(
         self,
@@ -166,17 +155,17 @@ class VarietyLessonSelectorChain(Chain):
 
         # select random lessons from the remaining
             # NOTE: outputs a list even if size = 1
-        rand_lessons = self.random_state.choice(lesson_ids, size = self.n_random_lessons, replace=False)
+        rand_lessons = self.random_state.choice(lesson_ids, size = self.n_random_lessons, replace=False).tolist()
 
         # concatenate the two lists
         chosen_ids = llm_lessons_list + rand_lessons
 
         # log on run manager to ensure that things went right
         if run_manager:
-            run_manager.on_text("Total number of lessons:", len(lesson_list_dicts))
-            run_manager.on_text("Lessons selected by llm:", llm_lessons_list)
-            run_manager.on_text("Remaining after llm:", len(lesson_ids))
-            run_manager.on_text("Selected by random:", rand_lessons)
+            run_manager.on_text("Total number of lessons: {}".format(len(lesson_list_dicts)))
+            run_manager.on_text("Lessons selected by llm: {}".format(llm_lessons_list))
+            run_manager.on_text("Remaining after llm: {}".format(len(lesson_ids)))
+            run_manager.on_text("Selected by random: {}".format(rand_lessons))
 
         return {
             "lesson_ids": chosen_ids,
