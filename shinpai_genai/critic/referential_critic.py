@@ -44,6 +44,12 @@ with open("./data/grammar_documents/n4_grammar/index_short.json", "r", encoding=
     # NOTE: read as string
     LESSON_LIST = f.read().encode('utf-8').decode('unicode_escape')
 
+with open("./shinpai_genai/prompts/ref_crit_system_prompt.txt", "r", encoding='utf-8') as f:
+    REFERENTIAL_CRITIC_SYSTEM_PROMPT = f.read()
+
+with open("./shinpai_genai/prompts/ref_crit_user_prompt.txt", "r", encoding='utf-8') as f:
+    REFERENTIAL_CRITIC_USER_PROMPT = f.read()
+
 # NOTE: can't use curly braces with prompt template
     # because it confuses it for placeholders
 LESSON_LIST_SAFE = LESSON_LIST.replace("{", "(").replace("}", ")")
@@ -63,7 +69,7 @@ def get_lesson_selector_chain(**kwargs):
     llm = kwargs.get(
         "llm", 
         ChatOpenAI(
-            model_name="gpt-3.5-turbo-16k",
+            model_name="gpt-3.5-turbo-1106",
             openai_api_key = CONFIG["openai_api_key"],
             temperature = 0,
         )
@@ -86,6 +92,16 @@ def get_lesson_selector_chain(**kwargs):
 
     return lesson_selector_chain
 
+def lesson_docs_from_ids(lesson_ids, **kwargs):
+    '''
+    Returns lesson documents as a single string from lesson ids.
+    
+    NOTE: limit the length of each document, since most of the latter part are examples.
+        Maybe use Recursive Character Splitter? Then just get the first chunk.
+    '''
+
+    pass
+
 class VarietyLessonSelectorChain(Chain):
     '''
     Tries to introduce more variety to lesson selection.
@@ -101,7 +117,7 @@ class VarietyLessonSelectorChain(Chain):
     # NOTE: user is not expected to change this chain
     llm_chain: LLMChain = LLMChain(
         llm = ChatOpenAI(
-            model_name="gpt-3.5-turbo-16k",
+            model_name="gpt-3.5-turbo-1106",
             openai_api_key = CONFIG["openai_api_key"],
             temperature = 0,
         ),
@@ -143,7 +159,8 @@ class VarietyLessonSelectorChain(Chain):
                 "conversation": inputs["conversation"],
                 "lesson_list": lesson_list_str,
                 "n_llm_lessons": self.n_llm_lessons,
-            }
+            },
+            callbacks = run_manager.get_child() if run_manager else None,
         )
 
         # convert the output to list
@@ -184,4 +201,56 @@ class ReferentialCriticChain(Chain):
         Add this to prompt?
     '''
 
-    pass
+    lesson_selector_chain: Chain = VarietyLessonSelectorChain()
+    feedback_chain: LLMChain = LLMChain(
+        llm = ChatOpenAI(
+            model_name="gpt-3.5-turbo-1106",
+            openai_api_key = CONFIG["openai_api_key"],
+            temperature = 0,
+        ),
+        prompt = ChatPromptTemplate.from_messages([
+            ("system", REFERENTIAL_CRITIC_SYSTEM_PROMPT),
+            ("human", REFERENTIAL_CRITIC_USER_PROMPT),
+        ])
+    )
+
+    @property
+    def input_keys(self) -> List[str]:
+
+        return ["lesson_list", "conversation"]
+
+    @property
+    def output_keys(self) -> List[str]:
+
+        return ["feedback"]
+
+    def _call(
+        self,
+        inputs: Dict[str, Any],
+        run_manager: Optional[CallbackManagerForChainRun] = None,
+    ) -> Dict[str, str]:
+
+        # NOTE: conversation here is already a string
+            # this will be handled by the Language Tutorial Chain
+
+        lesson_ids = self.lesson_selector_chain.run(
+            {
+                "lesson_list": inputs["lesson_list"],
+                "conversation": inputs["conversation"],
+            },
+            callbacks = run_manager.get_child() if run_manager else None,
+        )["lesson_ids"]
+
+        lesson_docs_str = lesson_docs_from_ids(lesson_ids)
+
+        feedback = self.feedback_chain.run(
+            {
+                "lesson_documents": lesson_docs_str,
+                "conversation": inputs["conversation"],
+            },
+            callbacks = run_manager.get_child() if run_manager else None,
+        )
+
+        return {
+            "feedback": feedback,
+        }
