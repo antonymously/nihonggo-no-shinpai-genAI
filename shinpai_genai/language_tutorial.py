@@ -19,8 +19,9 @@ from langchain.prompts.base import BasePromptTemplate
 from langchain.chains import ConversationChain, LLMChain
 
 from shinpai_genai.practice_buddy import get_practice_chain
-from shinpai_genai.critic import get_critic_chain, get_conversation_string
-
+from shinpai_genai.critic.simple_critic import get_critic_chain
+from shinpai_genai.critic.referential_critic import ReferentialCriticChain
+from shinpai_genai.critic.utils import get_conversation_string
 
 class LanguageTutorialChain(Chain):
     '''
@@ -29,7 +30,7 @@ class LanguageTutorialChain(Chain):
     '''
 
     practice_buddy_chain: ConversationChain = get_practice_chain()
-    critic_chain: LLMChain = get_critic_chain()
+    critic_chain: LLMChain = ReferentialCriticChain()
 
     @property
     def input_keys(self) -> List[str]:

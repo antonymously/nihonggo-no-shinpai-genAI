@@ -1,0 +1,257 @@
+[
+    {
+        "id": 0,
+        "title": "Verb Conjugation",
+        "short_description": ""
+    },
+    {
+        "id": 1,
+        "title": "\u3060 / \u3067\u3059 (da / desu)",
+        "short_description": "to be (copula)"
+    },
+    {
+        "id": 2,
+        "title": "\u3060\u3051 (dake)",
+        "short_description": "only, just"
+    },
+    {
+        "id": 3,
+        "title": "\u3060\u308d\u3046 (darou)",
+        "short_description": "probably"
+    },
+    {
+        "id": 4,
+        "title": "\u3067 (de)\u00a0\u2013 1",
+        "short_description": "at, in"
+    },
+    {
+        "id": 5,
+        "title": "\u3067 (de) \u2013 2",
+        "short_description": "with, by"
+    },
+    {
+        "id": 6,
+        "title": "\u3067\u3057\u3087\u3046 (deshou)",
+        "short_description": "I think, probably"
+    },
+    {
+        "id": 7,
+        "title": "\u304c (ga) \u2013 1",
+        "short_description": "subject marker"
+    },
+    {
+        "id": 8,
+        "title": "\u304c (ga)\u00a0\u2013 2",
+        "short_description": "but, however"
+    },
+    {
+        "id": 9,
+        "title": "\u304c\u3042\u308b (gaaru)",
+        "short_description": "there is (used for non-living things)"
+    },
+    {
+        "id": 10,
+        "title": "\u304c\u3044\u308b (gairu)",
+        "short_description": "there is (used for living things)"
+    },
+    {
+        "id": 11,
+        "title": "\u307b\u3046\u304c\u3044\u3044 (hou ga ii)",
+        "short_description": "1 it\u2019d be better to"
+    },
+    {
+        "id": 12,
+        "title": "\u307b\u3046\u304c\u3044\u3044 (hou ga ii)",
+        "short_description": "2 it\u2019d be better to not"
+    },
+    {
+        "id": 13,
+        "title": "\u3044\u3061\u3070\u3093 (ichiban)",
+        "short_description": "the most"
+    },
+    {
+        "id": 14,
+        "title": "\u304b (ka)\u00a01",
+        "short_description": "or (A or B, choice between 2 objects)"
+    },
+    {
+        "id": 15,
+        "title": "\u304b (ka) 2",
+        "short_description": "question\u00a0particle"
+    },
+    {
+        "id": 16,
+        "title": "\u304b\u3089 (kara)",
+        "short_description": "1 because, since"
+    },
+    {
+        "id": 17,
+        "title": "\u304b\u3089 (kara)",
+        "short_description": "\u2013 2 from"
+    },
+    {
+        "id": 18,
+        "title": "\u3051\u308c\u3069\u3082 (keredomo)",
+        "short_description": "but, although"
+    },
+    {
+        "id": 19,
+        "title": "\u304f\u3089\u3044 (kurai)",
+        "short_description": "about, approximately"
+    },
+    {
+        "id": 20,
+        "title": "\u307e\u3060 (mada)",
+        "short_description": "still, not yet"
+    },
+    {
+        "id": 21,
+        "title": "\u307e\u3067 (made)",
+        "short_description": "until, till, to, even"
+    },
+    {
+        "id": 22,
+        "title": "\u307e\u3048\u306b (mae ni)",
+        "short_description": "before"
+    },
+    {
+        "id": 23,
+        "title": "\u307e\u305b\u3093\u304b (masen ka)",
+        "short_description": "let\u2019s, won\u2019t you"
+    },
+    {
+        "id": 24,
+        "title": "\u307e\u3057\u3087\u3046 (mashou)",
+        "short_description": "let\u2019s, shall we"
+    },
+    {
+        "id": 25,
+        "title": "\u3082 (mo)",
+        "short_description": "also, too, as well"
+    },
+    {
+        "id": 26,
+        "title": "\u3082\u3046 (mo)",
+        "short_description": "already, anymore"
+    },
+    {
+        "id": 27,
+        "title": "\u306a (na)",
+        "short_description": "don\u2019t do"
+    },
+    {
+        "id": 28,
+        "title": "\u306a\u3044\u3067\u304f\u3060\u3055\u3044 (naidekudasai)",
+        "short_description": "please don\u2019t"
+    },
+    {
+        "id": 29,
+        "title": "\u306a\u308b (naru)",
+        "short_description": "to become"
+    },
+    {
+        "id": 30,
+        "title": "\u306b (ni)",
+        "short_description": "in, at, to, for"
+    },
+    {
+        "id": 31,
+        "title": "\u306b/\u3078 (ni/e)",
+        "short_description": "to"
+    },
+    {
+        "id": 32,
+        "title": "\u306b\u3044\u304f (ni iku)",
+        "short_description": "to go in order to"
+    },
+    {
+        "id": 33,
+        "title": "\u306b\u3059\u308b (nisuru)",
+        "short_description": "to decide on"
+    },
+    {
+        "id": 34,
+        "title": "\u306e (no) \u2013 1",
+        "short_description": "of (indicates possessive)"
+    },
+    {
+        "id": 35,
+        "title": "\u306e (no) \u2013 2",
+        "short_description": "Verb nominalizer"
+    },
+    {
+        "id": 36,
+        "title": "\u306e\u3067 (node)",
+        "short_description": "because of, the reason is that"
+    },
+    {
+        "id": 37,
+        "title": "\u306e\u304c\u3058\u3087\u3046\u305a (no ga jouzu)",
+        "short_description": "to be good at"
+    },
+    {
+        "id": 38,
+        "title": "\u306e\u304c\u3059\u304d (no ga suki)",
+        "short_description": "like / love doing"
+    },
+    {
+        "id": 39,
+        "title": "\u306e\u304c\u3078\u305f (no ga heta)",
+        "short_description": "to be bad at"
+    },
+    {
+        "id": 40,
+        "title": "\u305f\u3044 (tai)",
+        "short_description": "want to"
+    },
+    {
+        "id": 41,
+        "title": "\u305f\u3053\u3068\u304c\u3042\u308b (takotogaaru)",
+        "short_description": "have done before"
+    },
+    {
+        "id": 42,
+        "title": "\u3066\u3044\u308b (teiru)",
+        "short_description": "is/are/am doing"
+    },
+    {
+        "id": 43,
+        "title": "\u3066\u304f\u3060\u3055\u3044 (tekudasai)",
+        "short_description": "please do\u2026"
+    },
+    {
+        "id": 44,
+        "title": "\u3066\u3082\u3044\u3044 (temo ii)",
+        "short_description": "is okay, is alright to, can"
+    },
+    {
+        "id": 45,
+        "title": "\u3066\u304b\u3089 (tekara)",
+        "short_description": "after doing"
+    },
+    {
+        "id": 46,
+        "title": "\u3066\u306f\u3044\u3051\u306a\u3044 (tewaikenai)",
+        "short_description": "must not, may not"
+    },
+    {
+        "id": 47,
+        "title": "\u3068 (to)",
+        "short_description": "and, with"
+    },
+    {
+        "id": 48,
+        "title": "\u3064\u3082\u308a\u3060",
+        "short_description": "plan to, intend to"
+    },
+    {
+        "id": 49,
+        "title": "\u3084 (ya)",
+        "short_description": "and"
+    },
+    {
+        "id": 50,
+        "title": "\u3088\u308a ~ \u306e\u307b\u3046\u304c ~ (yori ~ nohouga ~)",
+        "short_description": "is more ~ than"
+    }
+]

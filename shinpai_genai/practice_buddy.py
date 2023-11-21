@@ -38,7 +38,7 @@ def get_practice_chain(**kwargs):
     llm = kwargs.get(
         "llm", 
         ChatOpenAI(
-            model_name="gpt-3.5-turbo",
+            model_name="gpt-3.5-turbo-1106",
             openai_api_key = CONFIG["openai_api_key"],
             temperature = 0,
         )
