@@ -29,7 +29,11 @@ from langchain.prompts.chat import (
     ChatPromptValue
 )
 from langchain.chains import LLMChain
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from shinpai_genai.critic.utils import get_conversation_string
+
+LESSONS_PATH = "./data/grammar_documents/n4_grammar/"
+    # NOTE: change this later if a different set of lessons is used
 
 with open("./config.json", "r") as f:
     CONFIG = json.load(f)
@@ -40,9 +44,15 @@ with open("./shinpai_genai/prompts/lesson_selector_system_prompt.txt", "r") as f
 with open("./shinpai_genai/prompts/lesson_selector_user_prompt.txt", "r") as f:
     LESSON_SELECTOR_USER_PROMPT = f.read()
 
-with open("./data/grammar_documents/n4_grammar/index_short.json", "r", encoding='utf-8') as f:
+with open(LESSONS_PATH + "index_short.json", "r", encoding='utf-8') as f:
     # NOTE: read as string
+        # because this will go into prompt for lesson selector
     LESSON_LIST = f.read().encode('utf-8').decode('unicode_escape')
+
+with open(LESSONS_PATH + "index.json", "r", encoding='utf-8') as f:
+    # NOTE: read as json
+        # no need to put this in prompt
+    LESSON_LIST_FULL = json.loads(f.read().encode('utf-8').decode('unicode_escape'))
 
 with open("./shinpai_genai/prompts/ref_crit_system_prompt.txt", "r", encoding='utf-8') as f:
     REFERENTIAL_CRITIC_SYSTEM_PROMPT = f.read()
@@ -57,6 +67,12 @@ LESSON_LIST_SAFE = LESSON_LIST.replace("{", "(").replace("}", ")")
 # for the variety lesson selector
     # which shuffles the lessons
 LESSON_LIST_DICTS = json.loads(LESSON_LIST)
+
+LESSON_TEXT_SPLITTER = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+    chunk_size = 1000,
+    chunk_overlap = 0,
+    separators = ["\n\n", "\n", "\.", " ", ""]
+)
 
 def get_lesson_selector_chain(**kwargs):
     '''
@@ -100,7 +116,26 @@ def lesson_docs_from_ids(lesson_ids, **kwargs):
         Maybe use Recursive Character Splitter? Then just get the first chunk.
     '''
 
-    pass
+    text_splitter = kwargs.get("text_splitter", LESSON_TEXT_SPLITTER)
+        # if None, the whole lesson text is retained
+
+    lesson_docs_str = ""
+
+    for i, id_ in enumerate(lesson_ids):
+        lesson_info = LESSON_LIST_FULL[id_]
+        lesson_path = LESSONS_PATH + lesson_info["file_name"]
+
+        with open(lesson_path, "r", encoding='utf-8') as f:
+            lesson_text = f.read()
+
+        if text_splitter is None:
+            chunk = lesson_text
+        else:
+            chunk = text_splitter.split_text(lesson_text)[0]
+
+        lesson_docs_str += "LESSON {}:\n".format(i + 1) + chunk + "\n\n"
+
+    return lesson_docs_str.strip()
 
 class VarietyLessonSelectorChain(Chain):
     '''
@@ -120,6 +155,7 @@ class VarietyLessonSelectorChain(Chain):
             model_name="gpt-3.5-turbo-1106",
             openai_api_key = CONFIG["openai_api_key"],
             temperature = 0,
+            timeout = 30,
         ),
         prompt = ChatPromptTemplate.from_messages([
             ("system", LESSON_SELECTOR_SYSTEM_PROMPT),
@@ -214,10 +250,12 @@ class ReferentialCriticChain(Chain):
         ])
     )
 
+    lesson_list: list = LESSON_LIST_DICTS
+
     @property
     def input_keys(self) -> List[str]:
 
-        return ["lesson_list", "conversation"]
+        return ["conversation"]
 
     @property
     def output_keys(self) -> List[str]:
@@ -235,11 +273,11 @@ class ReferentialCriticChain(Chain):
 
         lesson_ids = self.lesson_selector_chain.run(
             {
-                "lesson_list": inputs["lesson_list"],
+                "lesson_list": self.lesson_list,
                 "conversation": inputs["conversation"],
             },
             callbacks = run_manager.get_child() if run_manager else None,
-        )["lesson_ids"]
+        )
 
         lesson_docs_str = lesson_docs_from_ids(lesson_ids)
 
@@ -250,6 +288,9 @@ class ReferentialCriticChain(Chain):
             },
             callbacks = run_manager.get_child() if run_manager else None,
         )
+
+        if run_manager:
+            pass
 
         return {
             "feedback": feedback,

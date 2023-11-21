@@ -16,6 +16,11 @@ Do not prefix your response with 'Feedback' or any header. A header will be adde
 Address the student directly as if you are giving him advice.
 Focus on providing feedback on the latest response of the student.
 Avoid referring to previous responses unless necessary.
+If the lessons provided do not fit the student's latest response,
+you may provide examples of what he could say next or other closely related sentences.
+Also may also encourage the student to try using these lessons in his next response.
+Do not refer to the lesson numbers (ex. LESSON 1) when giving feedback,
+these are not visible to the student.
 
 LESSON DOCUMENTS:
 {lesson_documents}
